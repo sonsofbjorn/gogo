@@ -22,5 +22,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("%x", h.Sum(nil))
+	// Sum(data []byte) returna a slice of [Size]byte
+	for _, s := range h.Sum(nil) {
+		fmt.Printf("%x\n", s)
+	}
+
+	md5 := h.Sum(nil)
+
+	// %x base16 lower-case, %X base16 upper-case
+	fmt.Printf("%X%x\n", md5[0:2], md5[2:4])
 }
